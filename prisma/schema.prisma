@@ -11,18 +11,22 @@ generator client {
 }
 
 model User {
-  id    Int     @default(autoincrement()) @id
-  email String  @unique
-  name  String
-  accounts Account[]
+  id          Int     @default(autoincrement()) @id
+  email       String  @unique
+  name        String
+  accounts    Account[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Account {
-  id      Int  @default(autoincrement()) @id
-  balance Int  @default(0)
-  owner   User @relation(fields: [ownerId],references: [id])
-  ownerId Int
-  transactions Transaction[]
+  id            Int  @default(autoincrement()) @id
+  balance       Int  @default(0)
+  owner         User @relation(fields: [ownerId],references: [id])
+  ownerId       Int
+  transactions  Transaction[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Transaction {
@@ -30,4 +34,6 @@ model Transaction {
   value     Int     @default(0)
   account   Account @relation(fields: [accountId], references: [id])
   accountId Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
