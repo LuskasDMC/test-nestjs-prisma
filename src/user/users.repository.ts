@@ -5,7 +5,7 @@ import { PrismaService } from '../database/prisma.service';
 import IUser from './interfaces/user.interface';
 
 @Injectable()
-class UserRepository implements IUserRepository {
+class UsersRepository implements IUserRepository {
   constructor(private database: PrismaService) {}
 
   create(data: IUser): Promise<IUser> {
@@ -13,4 +13,4 @@ class UserRepository implements IUserRepository {
   }
 }
 
-export default UserRepository;
+export default UsersRepository;
