@@ -13,7 +13,6 @@ const appOptions: NestApplicationOptions = {
 const config = new DocumentBuilder()
   .setTitle('Cats example')
   .setDescription('The cats API description')
-  .setBasePath('docs')
   .setVersion('1.0')
   .addTag('cats')
   .build();
