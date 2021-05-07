@@ -9,7 +9,7 @@ class UsersRepository implements IUserRepository {
   constructor(private database: PrismaService) {}
 
   create(data: IUser): Promise<IUser> {
-    return this.database.user.create({ data, include: { accounts: true } });
+    return this.database.user.create({ data });
   }
 }
 

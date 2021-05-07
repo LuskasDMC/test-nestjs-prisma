@@ -9,6 +9,10 @@ class AccountsService {
   createAccount(data: IAccount): Promise<IAccount> {
     return this.accountRepository.create(data);
   }
+
+  updateAccountById(data: IAccount, id: number) {
+    return this.accountRepository.updateById(data, id);
+  }
 }
 
 export default AccountsService;
