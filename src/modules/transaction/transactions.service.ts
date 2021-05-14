@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import AccountsService from 'src/account/accounts.service';
+import AccountsService from 'src/modules/account/accounts.service';
 import { ITransaction } from './interfaces/transaction.interface';
 import TransactionEntity from './transaction.entity';
 import TransactionsRepository from './transactions.repository';

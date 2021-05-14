@@ -11,10 +11,10 @@ const appOptions: NestApplicationOptions = {
 };
 
 const config = new DocumentBuilder()
-  .setTitle('Cats example')
-  .setDescription('The cats API description')
-  .setVersion('1.0')
-  .addTag('cats')
+  .setTitle('Documentation')
+  .setDescription('The API description')
+  .setVersion('1.1')
+  .addTag('docs')
   .build();
 
 (async () => {

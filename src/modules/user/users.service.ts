@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import AccountsService from 'src/account/accounts.service';
+import AccountsService from 'src/modules/account/accounts.service';
 import { NotFoundException } from 'src/execeptions/not-found.exception';
 import IUser from './interfaces/user.interface';
 import UserEntity from './user.entity';
