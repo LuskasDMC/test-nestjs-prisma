@@ -8,8 +8,8 @@ export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Get(':id')
-  getUser(@Param('id') id: string, @Res() response: Response) {
-    response.json('vsf lixo');
+  getUserById(@Param('id') id: string, @Res() response: Response) {
+    // const user = this.usersService./
   }
 
   @Post()

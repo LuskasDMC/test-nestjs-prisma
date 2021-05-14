@@ -10,8 +10,12 @@ class AccountsService {
     return this.accountRepository.create(data);
   }
 
-  updateAccountById(data: IAccount, id: number) {
-    return this.accountRepository.updateById(data, id);
+  updateAccountById(id: number, data: IAccount) {
+    return this.accountRepository.updateById(id, data);
+  }
+
+  updateAccountByOwnerId(id: number, data: Partial<IAccount>) {
+    return this.accountRepository.updateByOwnerId(id, data);
   }
 }
 

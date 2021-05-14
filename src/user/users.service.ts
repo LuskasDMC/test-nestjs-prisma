@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import AccountsService from 'src/account/accounts.service';
+import { NotFoundException } from 'src/execeptions/not-found.exception';
 import IUser from './interfaces/user.interface';
 import UserEntity from './user.entity';
 import UserRepository from './users.repository';
@@ -21,5 +22,15 @@ export class UsersService {
     });
 
     return newUser;
+  }
+
+  async getUserById(id: number): Promise<IUser> {
+    const user = await this.repository.getById(id);
+
+    if (!user) {
+      throw new NotFoundException({ error: 'User not found' });
+    }
+
+    return user;
   }
 }

@@ -12,7 +12,7 @@ class AccountRepository implements IAccountRepository {
     return this.database.account.create({ data });
   }
 
-  updateById(data: Partial<IAccount>, id: number): Promise<IAccount> {
+  updateById(id: number, data: Partial<IAccount>): Promise<IAccount> {
     return this.database.account.update({
       data,
       where: {
@@ -22,8 +22,8 @@ class AccountRepository implements IAccountRepository {
   }
 
   updateByOwnerId(
-    data: Partial<IAccount>,
     ownerId: number,
+    data: Partial<IAccount>,
   ): Promise<Prisma.BatchPayload> {
     return this.database.account.updateMany({
       data,
