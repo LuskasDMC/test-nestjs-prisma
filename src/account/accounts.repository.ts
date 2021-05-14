@@ -5,7 +5,7 @@ import IAccount from './interfaces/account.interface';
 import IAccountRepository from './interfaces/account.repository.interface';
 
 @Injectable()
-class AccountRepository implements IAccountRepository {
+class AccountsRepository implements IAccountRepository {
   constructor(private database: PrismaService) {}
 
   create(data: IAccount): Promise<IAccount> {
@@ -34,4 +34,4 @@ class AccountRepository implements IAccountRepository {
   }
 }
 
-export default AccountRepository;
+export default AccountsRepository;
