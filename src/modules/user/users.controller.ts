@@ -1,5 +1,4 @@
-import { Body, Controller, Get, Param, Post, Res } from '@nestjs/common';
-import { Response } from 'express';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import CreateUserDTO from './dto/create-user.dto';
 import { UsersService } from './users.service';
 
@@ -7,14 +6,21 @@ import { UsersService } from './users.service';
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
-  @Get(':id')
-  getUserById(@Param('id') id: string, @Res() response: Response) {
-    // const user = this.usersService./
+  @Get()
+  async getAllUsers() {
+    const user = await this.usersService.getAllUsers();
+
+    return user;
   }
 
   @Post()
-  async createUser(@Body() data: CreateUserDTO, @Res() response: Response) {
+  async createUser(@Body() data: CreateUserDTO) {
     const user = await this.usersService.createUser(data);
-    response.status(201).json(user);
+    return user;
+  }
+
+  @Get(':id')
+  getUserById(@Param('id') id: string) {
+    // const user = this.usersService./
   }
 }

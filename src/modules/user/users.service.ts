@@ -24,6 +24,16 @@ export class UsersService {
     return newUser;
   }
 
+  async getAllUsers(): Promise<IUser[]> {
+    const user = await this.repository.getAllUsers();
+
+    if (!user.length) {
+      throw new NotFoundException({ error: 'No users found' });
+    }
+
+    return user;
+  }
+
   async getUserById(id: number): Promise<IUser> {
     const user = await this.repository.getById(id);
 

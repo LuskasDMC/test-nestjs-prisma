@@ -12,6 +12,10 @@ class UsersRepository implements IUserRepository {
     return this.database.user.create({ data });
   }
 
+  getAllUsers(): Promise<IUser[]> {
+    return this.database.user.findMany();
+  }
+
   getById(id: number): Promise<IUser> {
     return this.database.user.findUnique({ where: { id } });
   }

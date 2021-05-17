@@ -1,5 +1,7 @@
 import IUser from './user.interface';
 
 export default interface IUserRepository {
-  create(user: IUser): Promise<IUser>;
+  create(data: IUser): Promise<IUser>;
+  getAllUsers(): Promise<IUser[]>;
+  getById(id: number): Promise<IUser>;
 }
